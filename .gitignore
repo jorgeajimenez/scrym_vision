@@ -28,6 +28,9 @@ dist
 # Video files
 *.mp4
 
+# Model weights
+*.pt
+
 # Cache
 .npm-cache
 

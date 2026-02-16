@@ -6,7 +6,7 @@
 >
 > We built a prototype that watches live NFL game footage and acts as a real-time assistant coach. The goal was to see if we could go beyond simple object tracking and actually derive football strategy from video. The system uses computer vision to identify player positions and formations, while an LLM commentary engine processes that visual data to describe the play as it unfolds.
 >
-> To make the analysis actionable, the dashboard automatically renders these detected formations—like Shotgun or I-Formation—onto a digital tactical board. We used **Vision Agents** for the backend logic and a custom **React** dashboard for the frontend. The architecture follows a "Fast Eye, Slow Brain" pattern, combining high-speed detection for real-time tracking with a more analytical model for deep strategic commentary.
+> **⚠️ Developer Note on Assets:** This project previously utilized large PyTorch model weights (`rf-detr-seg-preview.pt`, ~130MB+) stored directly in the repository. To maintain repository health and stay within GitHub's file size limits, **these weights have been removed and added to .gitignore**. Future developers must ensure these assets are hosted externally or provided manually in the `backend/` and `04_football_commentator_example/` directories.
 
 ---
 
@@ -75,6 +75,15 @@ This isn't a passive screen; it's a reactive application.
 ```bash
 npm install
 ```
+
+### 📦 Asset Management & Model Weights
+> [!CAUTION]
+> **Large File Policy:** Do not commit `.pt`, `.weights`, or other large binary files (>50MB) directly to this repository. 
+> 
+> The required `rf-detr-seg-preview.pt` files have been removed to prevent repository bloat. To run the local detection:
+> 1. Obtain the `rf-detr-seg-preview.pt` model weights.
+> 2. Place a copy in `./backend/` and `./04_football_commentator_example/`.
+> 3. These paths are ignored by git via `.gitignore`.
 
 ### 2. Start the Backend "Brain"
 This command initializes the Vision Agent, starts the video processing pipeline, and launches the API server on port `5050`.

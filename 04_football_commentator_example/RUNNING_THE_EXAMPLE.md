@@ -9,7 +9,10 @@ Realtime and Roboflow object detection.
     - OpenAI API key: https://platform.openai.com/api-keys
     - GetStream API key: https://getstream.io
 
-2. **Configure environment:**
+2. **Model Weights:**
+    - Note: The `rf-detr-seg-preview.pt` file is required for local detection but is not included in the repo due to size. Ensure it is present in the `04_football_commentator_example/` directory.
+
+3. **Configure environment:**
    ```bash
    cd examples/04_football_commentator_example
    cp env.example .env
