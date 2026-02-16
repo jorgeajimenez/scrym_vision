@@ -6,7 +6,7 @@
 >
 > We built a prototype that watches live NFL game footage and acts as a real-time assistant coach. The goal was to see if we could go beyond simple object tracking and actually derive football strategy from video. The system uses computer vision to identify player positions and formations, while an LLM commentary engine processes that visual data to describe the play as it unfolds.
 >
-> **⚠️ Developer Note on Assets:** This project previously utilized large PyTorch model weights (`rf-detr-seg-preview.pt`, ~130MB+) stored directly in the repository. To maintain repository health and stay within GitHub's file size limits, **these weights have been removed and added to .gitignore**. Future developers must ensure these assets are hosted externally or provided manually in the `backend/` and `04_football_commentator_example/` directories.
+> **⚠️ Developer Note on Assets:** This project previously utilized large PyTorch model weights (`rf-detr-seg-preview.pt`, ~130MB+) stored directly in the repository. To maintain repository health and stay within GitHub's file size limits, **these weights have been removed and added to .gitignore**. These assets are available in the original [Vision Agents repository](https://github.com/GetStream/Vision-Agents/tree/main). Future developers must ensure these assets are hosted externally or provided manually in the `backend/` and `04_football_commentator_example/` directories.
 
 ---
 
