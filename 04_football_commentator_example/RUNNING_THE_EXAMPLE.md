@@ -10,7 +10,7 @@ Realtime and Roboflow object detection.
     - GetStream API key: https://getstream.io
 
 2. **Model Weights:**
-    - Note: The `rf-detr-seg-preview.pt` file is required for local detection but is not included in the repo due to size. Ensure it is present in the `04_football_commentator_example/` directory.
+    - Note: The `rf-detr-seg-preview.pt` file is required for local detection but is not included in this repo due to size. You can download the weights from the official [Vision Agents repository](https://github.com/GetStream/Vision-Agents/tree/main). Ensure it is present in the `04_football_commentator_example/` directory.
 
 3. **Configure environment:**
    ```bash

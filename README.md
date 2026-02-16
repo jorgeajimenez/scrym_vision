@@ -80,8 +80,10 @@ npm install
 > [!CAUTION]
 > **Large File Policy:** Do not commit `.pt`, `.weights`, or other large binary files (>50MB) directly to this repository. 
 > 
-> The required `rf-detr-seg-preview.pt` files have been removed to prevent repository bloat. To run the local detection:
-> 1. Obtain the `rf-detr-seg-preview.pt` model weights.
+> The required `rf-detr-seg-preview.pt` files have been removed to prevent repository bloat. These assets are **available in the original [Vision Agents repository](https://github.com/GetStream/Vision-Agents/tree/main)**.
+> 
+> To run the local detection:
+> 1. Download the weights from the official [Vision Agents repo](https://github.com/GetStream/Vision-Agents/tree/main).
 > 2. Place a copy in `./backend/` and `./04_football_commentator_example/`.
 > 3. These paths are ignored by git via `.gitignore`.
 
