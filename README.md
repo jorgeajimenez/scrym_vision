@@ -84,6 +84,8 @@ npm install
 > 1. Download the weights from the official [Vision Agents repo](https://github.com/GetStream/Vision-Agents/tree/main).
 > 2. Place a copy in `./backend/` and `./04_football_commentator_example/`.
 > 3. These paths are ignored by git via `.gitignore`.
+>
+> **Local Video File:** This repository does not include video files. You will need to provide your own local video file (e.g., `football.mp4`) when starting the backend brain with the `--video-track-override` flag.
 
 ### 2. Start the Backend "Brain"
 This command initializes the Vision Agent, starts the video processing pipeline, and launches the API server on port `5050`.
