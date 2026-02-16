@@ -1,0 +1,36 @@
+# Dependencies
+/node_modules
+/.pnp
+.pnp.js
+
+# Python
+__pycache__/
+*.pyc
+
+# Testing
+/coverage
+
+# Vite
+.vite/
+dist
+
+# Production
+/build
+
+# Misc
+.DS_Store
+*.pem
+*.log
+.env
+.env.*
+!.env.example
+
+# Video files
+*.mp4
+
+# Cache
+.npm-cache
+
+# Generated files
+/VISION_AGENTS_INTEGRATION.pdf
+/VISION_AGENTS_INTEGRATION.html

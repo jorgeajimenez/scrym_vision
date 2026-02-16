@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Simple Live Feed</title>
+    <!-- GetStream Video SDK -->
+    <script src="https://cdn.jsdelivr.net/npm/@stream-io/video-client@1.2.0/dist/index.global.js"></script>
+</head>
+<body style="background: #000; color: #fff; text-align: center; font-family: sans-serif;">
+
+    <h1>Live Feed</h1>
+    <div id="status">Connecting...</div>
+    <div id="video-container" style="width: 80%; margin: 20px auto; aspect-ratio: 16/9; background: #222;"></div>
+
+    <script>
+        async function start() {
+            try {
+                // 1. Get credentials
+                const res = await fetch('http://localhost:5050/credentials');
+                if (!res.ok) throw new Error('Agent not running');
+                const creds = await res.json();
+
+                // 2. Connect to Stream
+                // Handle different bundle structures (umd vs global)
+                const ClientClass = window.StreamVideoClient.StreamVideoClient || window.StreamVideoClient;
+                const client = new ClientClass({ 
+                    apiKey: creds.apiKey, 
+                    user: { id: creds.userId, name: 'Web Viewer' }, 
+                    token: creds.token 
+                });
+
+                const call = client.call(creds.callType, creds.callId);
+                await call.join();
+
+                document.getElementById('status').innerText = 'Connected!';
+
+                // 3. Render Video
+                call.state.participants$.subscribe((participants) => {
+                    const p = participants.find(p => p.videoTracks.size > 0);
+                    if (p) {
+                        const container = document.getElementById('video-container');
+                        if (!container.querySelector('video')) {
+                            const video = document.createElement('video');
+                            video.style.width = '100%';
+                            video.style.height = '100%';
+                            video.autoplay = true;
+                            video.muted = true;
+                            video.controls = true;
+                            container.appendChild(video);
+                            call.bindVideoElement(video, p.sessionId, 'videoTrack');
+                        }
+                    }
+                });
+
+            } catch (e) {
+                document.getElementById('status').innerText = 'Error: ' + e.message;
+            }
+        }
+        start();
+    </script>
+</body>
+</html>
