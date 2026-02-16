@@ -1,0 +1,3 @@
+# Ignore for language stats
+index.html linguist-generated=true
+app.html linguist-generated=true
