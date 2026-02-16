@@ -6,7 +6,7 @@
 >
 > We built a prototype that watches live NFL game footage and acts as a real-time assistant coach. The goal was to see if we could go beyond simple object tracking and actually derive football strategy from video. The system uses computer vision to identify player positions and formations, while an LLM commentary engine processes that visual data to describe the play as it unfolds.
 >
-> **⚠️ Developer Note on Assets:** This project previously utilized large PyTorch model weights (`rf-detr-seg-preview.pt`, ~130MB+) stored directly in the repository. To maintain repository health and stay within GitHub's file size limits, **these weights have been removed and added to .gitignore**. These assets are available in the original [Vision Agents repository](https://github.com/GetStream/Vision-Agents/tree/main). Future developers must ensure these assets are hosted externally or provided manually in the `backend/` and `04_football_commentator_example/` directories.
+> **💡 Developer Note on Assets:** To keep this repository lightweight and fast, large PyTorch model weights (`rf-detr-seg-preview.pt`) are managed externally and included in `.gitignore`. These assets are readily available in the original [Vision Agents repository](https://github.com/GetStream/Vision-Agents/tree/main). Developers can simply drop them into the `backend/` or `04_football_commentator_example/` directories as needed.
 
 ---
 
@@ -77,12 +77,10 @@ npm install
 ```
 
 ### 📦 Asset Management & Model Weights
-> [!CAUTION]
-> **Large File Policy:** Do not commit `.pt`, `.weights`, or other large binary files (>50MB) directly to this repository. 
+> [!TIP]
+> **Lightweight Repository:** To ensure fast cloning and optimal performance, we keep large binary files (>50MB) out of the git history. 
 > 
-> The required `rf-detr-seg-preview.pt` files have been removed to prevent repository bloat. These assets are **available in the original [Vision Agents repository](https://github.com/GetStream/Vision-Agents/tree/main)**.
-> 
-> To run the local detection:
+> The `rf-detr-seg-preview.pt` files are managed locally. To run the local detection:
 > 1. Download the weights from the official [Vision Agents repo](https://github.com/GetStream/Vision-Agents/tree/main).
 > 2. Place a copy in `./backend/` and `./04_football_commentator_example/`.
 > 3. These paths are ignored by git via `.gitignore`.
